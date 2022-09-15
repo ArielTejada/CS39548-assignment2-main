@@ -111,7 +111,12 @@ Array.prototype.myLastIndexOf = function(searchElement) {
 // KEYS //
 Object.myKeys = function(object) {
   // Place your code here.
-
+  // The keys() method returns a new Array Iterator object that contains the keys for each index in the array.
+  let keys = [];
+    for (let i = 0; i < object.length; i++) {
+        keys.push(i);
+    }
+  return keys;
 };
 
 // VALUES //
