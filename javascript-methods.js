@@ -139,3 +139,23 @@ const printOut = (x) => {console.log(x)}
 const testGreater = (x) => {return x > 3}
 const sameVal = (x) => {return x}
 
+console.log('test myMap: ');
+testArray2.map(printOut);
+console.log('test myFilter: ');
+console.log(testArray1.myFilter(testGreater));
+console.log('test mySome: ');
+console.log(testArray1.mySome(testGreater));
+console.log('test myEvery: ');
+console.log(testArray1.myEvery(testGreater));
+console.log('test myReduce: ');
+console.log(testArray1.myReduce(sameVal));
+console.log('test myIncludes: ');
+console.log(testArray2.myIncludes('mango'));
+console.log('test myIndexOf: ');
+console.log(testArray2.myIndexOf('mango'));
+console.log('test myLastIndexOf: ');
+console.log(testArray1.myLastIndexOf(2));
+console.log('test myKeys: ');
+console.log(Object.myKeys(testArray2));
+console.log('test myValues: ');
+console.log(Object.myValues(testArray2));
