@@ -23,7 +23,15 @@ Array.prototype.myMap = function(callbackFn) {
 // FILTER //
 Array.prototype.myFilter = function(callbackFn) {
   // Place your code here.
-
+  // create empty array, pass every element in 'this' array through callbackFn
+  // the ones that return true get pushed into new array, new array gets returned (filtered) 
+  let filteredArray = [];
+  for(let i = 0; i < this.length; i++){
+    if(callbackFn(this[i])){
+      filteredArray.push(this[i]);
+    }
+  }
+  return filteredArray;
 };
 
 // SOME //
