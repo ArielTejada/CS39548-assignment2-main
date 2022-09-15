@@ -122,7 +122,12 @@ Object.myKeys = function(object) {
 // VALUES //
 Object.myValues = function(object) {
   // Place your code here.
-
+  // The values() method returns a new array iterator object that iterates the value of each index in the array.
+  let values = [];
+    for (let i = 0; i < object.length; i++) {
+      values.push(object[i]);
+    }
+  return values;
 };
 
 // ------------------------------------------ Tests -------------------------------------------------------------------- //
