@@ -113,8 +113,8 @@ Object.myKeys = function(object) {
   // Place your code here.
   // The keys() method returns a new Array Iterator object that contains the keys for each index in the array.
   let keys = [];
-    for (let i = 0; i < object.length; i++) {
-        keys.push(i);
+    for (let key in object) {
+        keys.push(key);
     }
   return keys;
 };
@@ -124,8 +124,8 @@ Object.myValues = function(object) {
   // Place your code here.
   // The values() method returns a new array iterator object that iterates the value of each index in the array.
   let values = [];
-    for (let i = 0; i < object.length; i++) {
-      values.push(object[i]);
+    for (let key in object) {
+      values.push(object[key]);
     }
   return values;
 };
@@ -134,6 +134,10 @@ Object.myValues = function(object) {
 
 let testArray1 = [1, 2, 3, 4, 5, 6, 7, 2, 1];
 let testArray2 = ['apple', 'orange', 'banana', 'pear', 'mango'];
+let person = {
+  name: 'Ariel',
+  degree: 'Computer Science'
+}
 
 const printOut = (x) => {console.log(x)}
 const testGreater = (x) => {return x > 3}
@@ -156,6 +160,6 @@ console.log(testArray2.myIndexOf('mango'));
 console.log('test myLastIndexOf: ');
 console.log(testArray1.myLastIndexOf(2));
 console.log('test myKeys: ');
-console.log(Object.myKeys(testArray2));
+console.log(Object.myKeys(person));
 console.log('test myValues: ');
-console.log(Object.myValues(testArray2));
+console.log(Object.myValues(person));
