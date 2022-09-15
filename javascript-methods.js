@@ -61,7 +61,14 @@ Array.prototype.myEvery = function(callbackFn) {
 // REDUCE //
 Array.prototype.myReduce = function(callbackFn) {
   // Place your code here.
-
+  // The reduce() method executes a user-supplied "reducer" callback function on each element of the array in order
+  // passing in the return value from the calculation on the preceding element. The final result of running the reducer across 
+  // all elements of the array is a single value.
+  let initial_value = 0;
+  for(let i = 0; i < this.length; i++){
+    initial_value += callbackFn(this[i]);
+  }
+return initial_value;
 };
 
 // INCLUDES //
