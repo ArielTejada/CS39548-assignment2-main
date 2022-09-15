@@ -49,7 +49,13 @@ Array.prototype.mySome = function(callbackFn) {
 // EVERY //
 Array.prototype.myEvery = function(callbackFn) {
   // Place your code here.
-
+  // only returns true if every single element in the array returns true when passed through the callbackFn
+  for(let i = 0; i < this.length; i++){
+    if(callbackFn(this[i]) === false){
+      return false;
+    }
+  }
+  return true;
 };
 
 // REDUCE //
