@@ -86,7 +86,13 @@ Array.prototype.myIncludes = function(searchElement) {
 // INDEXOF //
 Array.prototype.myIndexOf = function(searchElement) {
   // Place your code here.
-
+  // The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
+  for(let i = 0; i < this.length; i++){
+    if(this[i] === searchElement){
+      return i;
+    }
+  }
+  return -1;
 };
 
 // LASTINDEXOF //
