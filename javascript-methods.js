@@ -74,7 +74,13 @@ return initial_value;
 // INCLUDES //
 Array.prototype.myIncludes = function(searchElement) {
   // Place your code here.
-
+  // The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
+  for(let i = 0; i < this.length; i++){
+    if(this[i] === searchElement){
+      return true;
+    }
+  }
+  return false;
 };
 
 // INDEXOF //
