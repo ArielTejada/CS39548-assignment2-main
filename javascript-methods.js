@@ -1,4 +1,4 @@
-/*----------------------------------------------------------
+/*-----------------------------------------------------------------------------
 JavaScript Prototype: Method
 Every object in JavaScript has a built-in property called "prototype." 
 The prototype constructor is used to add new methods (functions) and properties to a JavaScript object. 
@@ -8,16 +8,23 @@ The prototype constructor is used to add new methods (functions) and properties 
 In this Assignment, we use the prototype constructor to add new methods to the Array() object.
 
 Ariel Tejada - 12142319
-----------------------------------------------------------*/
+------------------------------------------------------------------------------*/
 
 // MAP //
 Array.prototype.myMap = function(callbackFn) {
-  // Place your code here.
-  // 'this' references the specific instance of Array.prototype its being called on
-  // pass every element in the array through the callbackFn starting from element 0
+// map calls a provided callbackFn function once for each element in an array, in order, and constructs a new array from the results. callbackFn is invoked only for indexes of the array which have assigned values (including undefined).
+// It is not called for missing elements of the array; that is:
+// indexes that have never been set;
+// indexes which have been deleted.
+let newArray = [];
+
   for(let i = 0; i < this.length; i++){
-    callbackFn(this[i]);
+    if (this.hasOwnProperty(i)) {
+      callbackFn(this[i], i, this);
+      newArray.push(this[i]);
+    }
   }
+return newArray;
 };
 
 // FILTER //
@@ -130,36 +137,88 @@ Object.myValues = function(object) {
   return values;
 };
 
-// ------------------------------------------ Tests -------------------------------------------------------------------- //
+// ---------------------------- Testing ---------------------------- //
 
-let testArray1 = [1, 2, 3, 4, 5, 6, 7, 2, 1];
+// Test Arrays/Objects
+let testArray1 = [1, 2, 3, 4, 2, 1];
 let testArray2 = ['apple', 'orange', 'banana', 'pear', 'mango'];
-let person = {
+let testArray3 = [1, , undefined, 4];
+let person = { 
   name: 'Ariel',
   degree: 'Computer Science'
 }
 
-const printOut = (x) => {console.log(x)}
+//Test Functions
 const testGreater = (x) => {return x > 3}
 const sameVal = (x) => {return x}
 
-console.log('test myMap: ');
-testArray2.map(printOut);
-console.log('test myFilter: ');
-console.log(testArray1.myFilter(testGreater));
-console.log('test mySome: ');
-console.log(testArray1.mySome(testGreater));
-console.log('test myEvery: ');
-console.log(testArray1.myEvery(testGreater));
-console.log('test myReduce: ');
-console.log(testArray1.myReduce(sameVal));
-console.log('test myIncludes: ');
-console.log(testArray2.myIncludes('mango'));
-console.log('test myIndexOf: ');
-console.log(testArray2.myIndexOf('mango'));
-console.log('test myLastIndexOf: ');
-console.log(testArray1.myLastIndexOf(2));
-console.log('test myKeys: ');
-console.log(Object.myKeys(person));
-console.log('test myValues: ');
-console.log(Object.myValues(person));
+// Tests
+console.log("test .map() (1 parameter):");
+testArray3.map((x) => {console.log(x)});
+console.log('test .myMap() (1 parameter):');
+testArray3.myMap((x) => {console.log(x)});
+console.log('\n');
+console.log("test .map() (2 parameter):");
+testArray3.map((x, y) => {console.log(x, y)});
+console.log('test .myMap() (2 parameter):');
+testArray3.myMap((x, y) => {console.log(x, y)});
+console.log('\n');
+console.log("test .map() (3 parameter):");
+testArray3.map((x, y, z) => {console.log(x, y, z)});
+console.log('test .myMap() (3 parameter):');
+testArray3.myMap((x, y, z) => {console.log(x, y, z)});
+console.log('-------------------');
+
+// console.log("test .filter()");
+// console.log();
+// console.log('test myFilter: ');
+// console.log(testArray1.myFilter(testGreater));
+// console.log('-------------------');
+
+// console.log("test .some()");
+// console.log();
+// console.log('test mySome: ');
+// console.log(testArray1.mySome(testGreater));
+// console.log('-------------------');
+
+// console.log("test .every()");
+// console.log();
+// console.log('test myEvery: ');
+// console.log(testArray1.myEvery(testGreater));
+// console.log('-------------------');
+
+// console.log("test .reduce()");
+// console.log();
+// console.log('test myReduce: ');
+// console.log(testArray1.myReduce(sameVal));
+// console.log('-------------------');
+
+// console.log("test .includes()");
+// console.log();
+// console.log('test myIncludes: ');
+// console.log(testArray2.myIncludes('mango'));
+// console.log('-------------------');
+
+// console.log("test .indexOf()");
+// console.log();
+// console.log('test myIndexOf: ');
+// console.log(testArray2.myIndexOf('mango'));
+// console.log('-------------------');
+
+// console.log("test .lastIndexOf()");
+// console.log();
+// console.log('test myLastIndexOf: ');
+// console.log(testArray1.myLastIndexOf(2));
+// console.log('-------------------');
+
+// console.log("test .keys()");
+// console.log();
+// console.log('test myKeys: ');
+// console.log(Object.myKeys(person));
+// console.log('-------------------');
+
+// console.log("test .values()");
+// console.log();
+// console.log('test myValues: ');
+// console.log(Object.myValues(person));
+// console.log('-------------------');
