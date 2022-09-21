@@ -52,8 +52,10 @@ Array.prototype.mySome = function(callbackFn) {
   // Place your code here.
   // returns true if 'some'/any of the elements in the array return true when passed through the callbackFn
   for(let i = 0; i < this.length; i++){
-    if(callbackFn(this[i])){
+    if(this.hasOwnProperty(i)){
+      if(callbackFn(this[i], i, this)){
       return true;
+      }
     }
   }
   return false;
@@ -157,27 +159,27 @@ let person = {
 // Tests
 
 let test;
-// console.log("test .map() (1 parameter):");
-// testArray3.map((x) => {console.log(x)});
-// console.log('test .myMap() (1 parameter):');
-// testArray3.myMap((x) => {console.log(x)});
-// console.log('\n');
-// console.log("test .map() (2 parameter):");
-// testArray3.map((x, y) => {console.log(x, y)});
-// console.log('test .myMap() (2 parameter):');
-// testArray3.myMap((x, y) => {console.log(x, y)});
-// console.log('\n');
-// console.log("test .map() (3 parameter):");
-// testArray3.map((x, y, z) => {console.log(x, y, z)});
-// console.log('test .myMap() (3 parameter):');
-// testArray3.myMap((x, y, z) => {console.log(x, y, z)});
-// console.log('-------------------');
+/* console.log("test .map() (1 parameter):");
+testArray3.map((x) => {console.log(x)});
+console.log('test .myMap() (1 parameter):');
+testArray3.myMap((x) => {console.log(x)});
+console.log('\n');
+console.log("test .map() (2 parameter):");
+testArray3.map((x, y) => {console.log(x, y)});
+console.log('test .myMap() (2 parameter):');
+testArray3.myMap((x, y) => {console.log(x, y)});
+console.log('\n');
+console.log("test .map() (3 parameter):");
+testArray3.map((x, y, z) => {console.log(x, y, z)});
+console.log('test .myMap() (3 parameter):');
+testArray3.myMap((x, y, z) => {console.log(x, y, z)});
+console.log('-------------------'); */
 
-console.log("test .filter() (1 parameter):");
-test = testArray1.filter((x)=> {return x > 2});
+/* console.log("test .filter() (1 parameter):");
+test = testArray3.filter((x)=> {return x > 2});
 console.log(test);
 console.log('test .myFilter() (1 parameter): ');
-test = testArray1.myFilter((x) => {return x > 2});
+test = testArray3.myFilter((x) => {return x > 2});
 console.log(test);
 console.log('\n');
 console.log("test .filter() (2 parameter):");
@@ -193,13 +195,23 @@ console.log(test);
 console.log('test .myFilter() (3 parameter): ');
 test = testArray1.myFilter((x, y, z)=> {return (x + y + z[y]) > 5});
 console.log(test);
-console.log('-------------------');
+console.log('-------------------'); */
 
-// console.log("test .some()");
-// console.log();
-// console.log('test mySome: ');
-// console.log(testArray1.mySome(testGreater));
-// console.log('-------------------');
+console.log("test .some() (1 parameter):");
+console.log(testArray1.some((x) => {return x === 3}));
+console.log('test .mySome() (1 parameter):');
+console.log(testArray1.mySome((x) => {return x === 3}));
+console.log('\n');
+console.log("test .some() (2 parameter):");
+console.log(testArray2.some((x, y) => {return (x === 'orange' && y === 1)}));
+console.log('test .mySome() (2 parameter):');
+console.log(testArray2.mySome((x, y) => {return (x === 'orange' && y === 1)}));
+console.log('\n');
+console.log("test .some() (3 parameter):");
+console.log(testArray3.some((x, y, z) => {return (x > 6 && y > 1 && z[y] === 4)}));
+console.log('test .mySome() (3 parameter):');
+console.log(testArray3.mySome((x, y, z) => {return (x > 6 && y > 1 && z[y] === 4)}));
+console.log('-------------------');
 
 // console.log("test .every()");
 // console.log();
