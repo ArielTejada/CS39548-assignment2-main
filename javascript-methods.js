@@ -12,10 +12,6 @@ Ariel Tejada - 12142319
 
 // MAP //
 Array.prototype.myMap = function(callbackFn) {
-// map calls a provided callbackFn function once for each element in an array, in order, and constructs a new array from the results. callbackFn is invoked only for indexes of the array which have assigned values (including undefined).
-// It is not called for missing elements of the array; that is:
-// indexes that have never been set;
-// indexes which have been deleted.
 let newArray = [];
 
   for(let i = 0; i < this.length; i++){
@@ -29,13 +25,6 @@ return newArray;
 
 // FILTER //
 Array.prototype.myFilter = function(callbackFn) {
-  /* filter() calls a provided callbackFn function once for each element in an array, and constructs a new array of all the values for which callbackFn returns a value that coerces to true. callbackFn is invoked only for indexes of the array which have assigned values; it is not invoked for indexes which have been deleted or which have never been assigned values. Array elements which do not pass the callbackFn test are skipped, and are not included in the new array.
-
-callbackFn is invoked with three arguments:
-
-the value of the element
-the index of the element
-the Array object being traversed */
   let filteredArray = [];
   for(let i = 0; i < this.length; i++){
     if (this.hasOwnProperty(i)) {
@@ -49,8 +38,6 @@ the Array object being traversed */
 
 // SOME //
 Array.prototype.mySome = function(callbackFn) {
-  // Place your code here.
-  // returns true if 'some'/any of the elements in the array return true when passed through the callbackFn
   for(let i = 0; i < this.length; i++){
     if(this.hasOwnProperty(i)){
       if(callbackFn(this[i], i, this)){
@@ -63,11 +50,11 @@ Array.prototype.mySome = function(callbackFn) {
 
 // EVERY //
 Array.prototype.myEvery = function(callbackFn) {
-  // Place your code here.
-  // only returns true if every single element in the array returns true when passed through the callbackFn
   for(let i = 0; i < this.length; i++){
-    if(callbackFn(this[i]) === false){
-      return false;
+    if(this.hasOwnProperty(i)){
+      if(callbackFn(this[i], i, this) === false){
+        return false;
+      }
     }
   }
   return true;
@@ -81,7 +68,7 @@ Array.prototype.myReduce = function(callbackFn) {
   // all elements of the array is a single value.
   let initial_value = 0;
   for(let i = 0; i < this.length; i++){
-    initial_value += callbackFn(this[i]);
+    initial_value += callbackFn(this[i], i, this);
   }
 return initial_value;
 };
@@ -197,7 +184,7 @@ test = testArray1.myFilter((x, y, z)=> {return (x + y + z[y]) > 5});
 console.log(test);
 console.log('-------------------'); */
 
-console.log("test .some() (1 parameter):");
+/* console.log("test .some() (1 parameter):");
 console.log(testArray1.some((x) => {return x === 3}));
 console.log('test .mySome() (1 parameter):');
 console.log(testArray1.mySome((x) => {return x === 3}));
@@ -211,13 +198,23 @@ console.log("test .some() (3 parameter):");
 console.log(testArray3.some((x, y, z) => {return (x > 6 && y > 1 && z[y] === 4)}));
 console.log('test .mySome() (3 parameter):');
 console.log(testArray3.mySome((x, y, z) => {return (x > 6 && y > 1 && z[y] === 4)}));
-console.log('-------------------');
+console.log('-------------------'); */
 
-// console.log("test .every()");
-// console.log();
-// console.log('test myEvery: ');
-// console.log(testArray1.myEvery(testGreater));
-// console.log('-------------------');
+/* console.log("test .every() (1 parameter):");
+console.log(testArray1.every((x) => {return x > 2}));
+console.log('test .myEvery() (1 parameter):: ');
+console.log(testArray1.myEvery((x) => {return x > 2}));
+console.log('\n');
+console.log("test .every() (2 parameter):");
+console.log(testArray3.every((x, y) => {return (x >= 0 && y >= 0)}));
+console.log('test .myEvery() (2 parameter):: ');
+console.log(testArray3.myEvery((x, y) => {return (x >= 0 && y >= 0)}));
+console.log('\n');
+console.log("test .every() (3 parameter):");
+console.log(testArray2.every((x, y, z) => {return (z[y] === x)}));
+console.log('test .myEvery() (3 parameter):: ');
+console.log(testArray2.myEvery((x, y, z) => {return (z[y] === x)}));
+console.log('-------------------'); */
 
 // console.log("test .reduce()");
 // console.log();
