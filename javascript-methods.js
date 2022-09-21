@@ -29,13 +29,19 @@ return newArray;
 
 // FILTER //
 Array.prototype.myFilter = function(callbackFn) {
-  // Place your code here.
-  // create empty array, pass every element in 'this' array through callbackFn
-  // the ones that return true get pushed into new array, new array gets returned (filtered) 
+  /* filter() calls a provided callbackFn function once for each element in an array, and constructs a new array of all the values for which callbackFn returns a value that coerces to true. callbackFn is invoked only for indexes of the array which have assigned values; it is not invoked for indexes which have been deleted or which have never been assigned values. Array elements which do not pass the callbackFn test are skipped, and are not included in the new array.
+
+callbackFn is invoked with three arguments:
+
+the value of the element
+the index of the element
+the Array object being traversed */
   let filteredArray = [];
   for(let i = 0; i < this.length; i++){
-    if(callbackFn(this[i])){
-      filteredArray.push(this[i]);
+    if (this.hasOwnProperty(i)) {
+      if(callbackFn(this[i], i, this)){
+        filteredArray.push(this[i]);
+      }
     }
   }
   return filteredArray;
@@ -148,32 +154,46 @@ let person = {
   degree: 'Computer Science'
 }
 
-//Test Functions
-const testGreater = (x) => {return x > 3}
-const sameVal = (x) => {return x}
-
 // Tests
-console.log("test .map() (1 parameter):");
-testArray3.map((x) => {console.log(x)});
-console.log('test .myMap() (1 parameter):');
-testArray3.myMap((x) => {console.log(x)});
-console.log('\n');
-console.log("test .map() (2 parameter):");
-testArray3.map((x, y) => {console.log(x, y)});
-console.log('test .myMap() (2 parameter):');
-testArray3.myMap((x, y) => {console.log(x, y)});
-console.log('\n');
-console.log("test .map() (3 parameter):");
-testArray3.map((x, y, z) => {console.log(x, y, z)});
-console.log('test .myMap() (3 parameter):');
-testArray3.myMap((x, y, z) => {console.log(x, y, z)});
-console.log('-------------------');
 
-// console.log("test .filter()");
-// console.log();
-// console.log('test myFilter: ');
-// console.log(testArray1.myFilter(testGreater));
+let test;
+// console.log("test .map() (1 parameter):");
+// testArray3.map((x) => {console.log(x)});
+// console.log('test .myMap() (1 parameter):');
+// testArray3.myMap((x) => {console.log(x)});
+// console.log('\n');
+// console.log("test .map() (2 parameter):");
+// testArray3.map((x, y) => {console.log(x, y)});
+// console.log('test .myMap() (2 parameter):');
+// testArray3.myMap((x, y) => {console.log(x, y)});
+// console.log('\n');
+// console.log("test .map() (3 parameter):");
+// testArray3.map((x, y, z) => {console.log(x, y, z)});
+// console.log('test .myMap() (3 parameter):');
+// testArray3.myMap((x, y, z) => {console.log(x, y, z)});
 // console.log('-------------------');
+
+console.log("test .filter() (1 parameter):");
+test = testArray1.filter((x)=> {return x > 2});
+console.log(test);
+console.log('test .myFilter() (1 parameter): ');
+test = testArray1.myFilter((x) => {return x > 2});
+console.log(test);
+console.log('\n');
+console.log("test .filter() (2 parameter):");
+test = testArray1.filter((x, y)=> {return (x + y) > 2});
+console.log(test);
+console.log('test .myFilter() (2 parameter): ');
+test = testArray1.myFilter((x, y)=> {return (x + y) > 2});
+console.log(test);
+console.log('\n');
+console.log("test .filter() (3 parameter):");
+test = testArray1.filter((x, y, z)=> {return (x + y + z[y]) > 5});
+console.log(test);
+console.log('test .myFilter() (3 parameter): ');
+test = testArray1.myFilter((x, y, z)=> {return (x + y + z[y]) > 5});
+console.log(test);
+console.log('-------------------');
 
 // console.log("test .some()");
 // console.log();
