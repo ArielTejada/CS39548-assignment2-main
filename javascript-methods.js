@@ -61,17 +61,14 @@ Array.prototype.myEvery = function(callbackFn) {
 };
 
 // REDUCE //
-Array.prototype.myReduce = function(callbackFn) {
-  // Place your code here.
-  // The reduce() method executes a user-supplied "reducer" callback function on each element of the array in order
-  // passing in the return value from the calculation on the preceding element. The final result of running the reducer across 
-  // all elements of the array is a single value.
-  let initial_value = 0;
-  for(let i = 0; i < this.length; i++){
-    initial_value += callbackFn(this[i], i, this);
+Array.prototype.myReduce = function(callback, initialValue){
+  for (let i = 0; i < this.length; i++) {
+    if(this.hasOwnProperty(i)){
+      initialValue = callback(initialValue, this[i], i, this);
+    }  
   }
-return initial_value;
-};
+return initialValue;
+}
 
 // INCLUDES //
 Array.prototype.myIncludes = function(searchElement) {
@@ -202,25 +199,30 @@ console.log('-------------------'); */
 
 /* console.log("test .every() (1 parameter):");
 console.log(testArray1.every((x) => {return x > 2}));
-console.log('test .myEvery() (1 parameter):: ');
+console.log('test .myEvery() (1 parameter): ');
 console.log(testArray1.myEvery((x) => {return x > 2}));
 console.log('\n');
 console.log("test .every() (2 parameter):");
 console.log(testArray3.every((x, y) => {return (x >= 0 && y >= 0)}));
-console.log('test .myEvery() (2 parameter):: ');
+console.log('test .myEvery() (2 parameter): ');
 console.log(testArray3.myEvery((x, y) => {return (x >= 0 && y >= 0)}));
 console.log('\n');
 console.log("test .every() (3 parameter):");
 console.log(testArray2.every((x, y, z) => {return (z[y] === x)}));
-console.log('test .myEvery() (3 parameter):: ');
+console.log('test .myEvery() (3 parameter): ');
 console.log(testArray2.myEvery((x, y, z) => {return (z[y] === x)}));
 console.log('-------------------'); */
 
-// console.log("test .reduce()");
-// console.log();
-// console.log('test myReduce: ');
-// console.log(testArray1.myReduce(sameVal));
-// console.log('-------------------');
+/* function adder(a, b) {
+  return a + b;
+};
+
+console.log("test .reduce() (2 parameter):");
+console.log(testArray1.reduce(adder, 0));
+console.log('test .myReduce() (2 parameter): ');
+console.log(testArray1.myReduce(adder, 0));
+console.log('\n');
+console.log('-------------------'); */
 
 // console.log("test .includes()");
 // console.log();
