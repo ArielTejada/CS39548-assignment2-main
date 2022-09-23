@@ -72,8 +72,6 @@ return initialValue;
 
 // INCLUDES //
 Array.prototype.myIncludes = function(searchElement, searchIndex) {
-  // Place your code here.
-  // The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
   if(searchIndex != undefined){
     return (this[searchIndex] === searchElement);
   }
@@ -87,10 +85,8 @@ Array.prototype.myIncludes = function(searchElement, searchIndex) {
 };
 
 // INDEXOF //
-Array.prototype.myIndexOf = function(searchElement) {
-  // Place your code here.
-  // The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
-  for(let i = 0; i < this.length; i++){
+Array.prototype.myIndexOf = function(searchElement, fromIndex = 0) {
+  for(let i = fromIndex; i < this.length; i++){
     if(this[i] === searchElement){
       return i;
     }
@@ -138,7 +134,7 @@ Object.myValues = function(object) {
 // Test Arrays/Objects
 let testArray1 = [1, 2, 3, 4, 2, 1];
 let testArray2 = ['apple', 'orange', 'banana', 'pear', 'mango'];
-let testArray3 = [1, , undefined, 4];
+let testArray3 = [1, , undefined, 4, 1];
 let person = { 
   name: 'Ariel',
   degree: 'Computer Science'
@@ -228,7 +224,7 @@ console.log(testArray1.myReduce(adder, 0));
 console.log('\n');
 console.log('-------------------'); */
 
-console.log("test .includes() (1 parameter)");
+/* console.log("test .includes() (1 parameter)");
 console.log(testArray1.includes(2));
 console.log('test .myIncludes() (1 parameter): ');
 console.log(testArray1.includes(2));
@@ -242,13 +238,23 @@ console.log("test .includes() (2 parameter)");
 console.log(testArray3.includes(undefined, 2));
 console.log('test .myIncludes() (2 parameter): ');
 console.log(testArray3.includes(undefined, 2));
-console.log('-------------------');
+console.log('-------------------'); */
 
-// console.log("test .indexOf()");
-// console.log();
-// console.log('test .myIndexOf(): ');
-// console.log(testArray2.myIndexOf('mango'));
-// console.log('-------------------');
+console.log("test .indexOf() (1 parameter)");
+console.log(testArray1.indexOf(2));
+console.log('test .myIndexOf() (1 parameter): ');
+console.log(testArray1.indexOf(2));
+console.log('\n');
+console.log("test .indexOf() (2 parameter)");
+console.log(testArray1.indexOf(2, 2));
+console.log('test .myIndexOf() (2 parameter): ');
+console.log(testArray1.indexOf(2, 2));
+console.log('\n');
+console.log("test .indexOf() (2 parameter)");
+console.log(testArray3.indexOf(1, 1));
+console.log('test .myIndexOf() (2 parameter): ');
+console.log(testArray3.indexOf(1, 1));
+console.log('-------------------');
 
 // console.log("test .lastIndexOf()");
 // console.log();
