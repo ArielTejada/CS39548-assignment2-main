@@ -13,11 +13,9 @@ Ariel Tejada - 12142319
 // MAP //
 Array.prototype.myMap = function(callbackFn) {
 let newArray = [];
-
   for(let i = 0; i < this.length; i++){
     if (this.hasOwnProperty(i)) {
-      callbackFn(this[i], i, this);
-      newArray.push(this[i]);
+      newArray.push(callbackFn(this[i], i, this));
     }
   }
 return newArray;
@@ -140,21 +138,27 @@ let person = {
 // Tests
 
 let test;
-/* console.log("test .map() (1 parameter):");
-testArray3.map((x) => {console.log(x)});
+console.log("test .map() (1 parameter):");
+test  = testArray3.map((x) => {console.log(x)});
+console.log(test);
 console.log('test .myMap() (1 parameter):');
-testArray3.myMap((x) => {console.log(x)});
+test  = testArray3.myMap((x) => {console.log(x)});
+console.log(test);
 console.log('\n');
 console.log("test .map() (2 parameter):");
-testArray3.map((x, y) => {console.log(x, y)});
+test = testArray3.map((x, y) => {console.log(x, y)});
+console.log(test);
 console.log('test .myMap() (2 parameter):');
-testArray3.myMap((x, y) => {console.log(x, y)});
+test = testArray3.myMap((x, y) => {console.log(x, y)});
+console.log(test);
 console.log('\n');
 console.log("test .map() (3 parameter):");
-testArray3.map((x, y, z) => {console.log(x, y, z)});
+test = testArray3.map((x, y, z) => {console.log(x, y, z)});
+console.log(test);
 console.log('test .myMap() (3 parameter):');
-testArray3.myMap((x, y, z) => {console.log(x, y, z)});
-console.log('-------------------'); */
+test = testArray3.myMap((x, y, z) => {console.log(x, y, z)});
+console.log(test);
+console.log('-------------------');
 
 /* console.log("test .filter() (1 parameter):");
 test = testArray3.filter((x)=> {return x > 2});
