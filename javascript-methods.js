@@ -95,11 +95,8 @@ Array.prototype.myIndexOf = function(searchElement, fromIndex = 0) {
 };
 
 // LASTINDEXOF //
-Array.prototype.myLastIndexOf = function(searchElement) {
-  // Place your code here.
-  // The lastIndexOf() method returns the last index at which a given element can be found in the array
-  // or -1 if it is not present. The array is searched backwards, starting at fromIndex.
-  for(let i = (this.length - 1); i > 0; i--){
+Array.prototype.myLastIndexOf = function(searchElement, fromIndex = this.length - 1) {
+  for(let i = fromIndex; i >= 0; i--){
     if(this[i] === searchElement){
       return i;
     }
@@ -240,7 +237,7 @@ console.log('test .myIncludes() (2 parameter): ');
 console.log(testArray3.includes(undefined, 2));
 console.log('-------------------'); */
 
-console.log("test .indexOf() (1 parameter)");
+/* console.log("test .indexOf() (1 parameter)");
 console.log(testArray1.indexOf(2));
 console.log('test .myIndexOf() (1 parameter): ');
 console.log(testArray1.indexOf(2));
@@ -254,13 +251,23 @@ console.log("test .indexOf() (2 parameter)");
 console.log(testArray3.indexOf(1, 1));
 console.log('test .myIndexOf() (2 parameter): ');
 console.log(testArray3.indexOf(1, 1));
-console.log('-------------------');
+console.log('-------------------'); */
 
-// console.log("test .lastIndexOf()");
-// console.log();
-// console.log('test .myLastIndexOf(): ');
-// console.log(testArray1.myLastIndexOf(2));
-// console.log('-------------------');
+console.log("test .lastIndexOf() (1 parameter)");
+console.log(testArray1.lastIndexOf(2));
+console.log('test .myLastIndexOf() (1 parameter): ');
+console.log(testArray1.myLastIndexOf(2));
+console.log('\n');
+console.log("test .lastIndexOf() (2 parameter)");
+console.log(testArray1.lastIndexOf(2, 2));
+console.log('test .myLastIndexOf() (2 parameter): ');
+console.log(testArray1.myLastIndexOf(2, 2));
+console.log('\n');
+console.log("test .lastIndexOf() (2 parameter)");
+console.log(testArray3.lastIndexOf(1, 1));
+console.log('test .myLastIndexOf() (2 parameter): ');
+console.log(testArray3.myLastIndexOf(1, 1));
+console.log('-------------------');
 
 // console.log("test .keys()");
 // console.log();
