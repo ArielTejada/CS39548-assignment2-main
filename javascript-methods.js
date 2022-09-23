@@ -16,6 +16,8 @@ let newArray = [];
   for(let i = 0; i < this.length; i++){
     if (this.hasOwnProperty(i)) {
       newArray.push(callbackFn(this[i], i, this));
+    } else {
+      newArray.length++;
     }
   }
 return newArray;
