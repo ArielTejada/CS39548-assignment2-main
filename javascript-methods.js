@@ -106,13 +106,13 @@ Array.prototype.myLastIndexOf = function(searchElement, fromIndex = this.length 
 
 // KEYS //
 Object.myKeys = function(object) {
-  // Place your code here.
-  // The keys() method returns a new Array Iterator object that contains the keys for each index in the array.
   let keys = [];
     for (let key in object) {
-        keys.push(key);
+        if (object.hasOwnProperty(key)) {
+            keys.push(key);
+        }
     }
-  return keys;
+    return keys;
 };
 
 // VALUES //
@@ -253,7 +253,7 @@ console.log('test .myIndexOf() (2 parameter): ');
 console.log(testArray3.indexOf(1, 1));
 console.log('-------------------'); */
 
-console.log("test .lastIndexOf() (1 parameter)");
+/* console.log("test .lastIndexOf() (1 parameter)");
 console.log(testArray1.lastIndexOf(2));
 console.log('test .myLastIndexOf() (1 parameter): ');
 console.log(testArray1.myLastIndexOf(2));
@@ -267,16 +267,26 @@ console.log("test .lastIndexOf() (2 parameter)");
 console.log(testArray3.lastIndexOf(1, 1));
 console.log('test .myLastIndexOf() (2 parameter): ');
 console.log(testArray3.myLastIndexOf(1, 1));
+console.log('-------------------'); */
+
+console.log("test .keys():");
+console.log(Object.keys(testArray1));
+console.log('test .myKeys():');
+console.log(Object.myKeys(testArray1));
+console.log('\n');
+console.log("test .keys():");
+console.log(Object.keys(testArray3));
+console.log('test .myKeys():');
+console.log(Object.myKeys(testArray3));
+console.log('\n');
+console.log("test .keys():");
+console.log(Object.keys(person));
+console.log('test .myKeys():');
+console.log(Object.myKeys(person));
 console.log('-------------------');
 
-// console.log("test .keys()");
+// console.log("test .values():");
 // console.log();
-// console.log('test .myKeys(): ');
-// console.log(Object.myKeys(person));
-// console.log('-------------------');
-
-// console.log("test .values()");
-// console.log();
-// console.log('test .myValues(): ');
+// console.log('test .myValues():');
 // console.log(Object.myValues(person));
 // console.log('-------------------');
