@@ -117,13 +117,13 @@ Object.myKeys = function(object) {
 
 // VALUES //
 Object.myValues = function(object) {
-  // Place your code here.
-  // The values() method returns a new array iterator object that iterates the value of each index in the array.
-  let values = [];
+  const values = [];
     for (let key in object) {
-      values.push(object[key]);
+        if (object.hasOwnProperty(key)) {
+            values.push(object[key]);
+        }
     }
-  return values;
+    return values;
 };
 
 // ---------------------------- Testing ---------------------------- //
@@ -269,7 +269,7 @@ console.log('test .myLastIndexOf() (2 parameter): ');
 console.log(testArray3.myLastIndexOf(1, 1));
 console.log('-------------------'); */
 
-console.log("test .keys():");
+/* console.log("test .keys():");
 console.log(Object.keys(testArray1));
 console.log('test .myKeys():');
 console.log(Object.myKeys(testArray1));
@@ -283,10 +283,20 @@ console.log("test .keys():");
 console.log(Object.keys(person));
 console.log('test .myKeys():');
 console.log(Object.myKeys(person));
-console.log('-------------------');
+console.log('-------------------'); */
 
-// console.log("test .values():");
-// console.log();
-// console.log('test .myValues():');
-// console.log(Object.myValues(person));
-// console.log('-------------------');
+/* console.log("test .values():");
+console.log(Object.values(testArray1));
+console.log('test .myValues():');
+console.log(Object.myValues(testArray1));
+console.log('\n');
+console.log("test .values():");
+console.log(Object.values(testArray3));
+console.log('test .myValues():');
+console.log(Object.myValues(testArray3));
+console.log('\n');
+console.log("test .values():");
+console.log(Object.values(person));
+console.log('test .myValues():');
+console.log(Object.myValues(person));
+console.log('-------------------'); */
