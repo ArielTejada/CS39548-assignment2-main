@@ -71,9 +71,13 @@ return initialValue;
 }
 
 // INCLUDES //
-Array.prototype.myIncludes = function(searchElement) {
+Array.prototype.myIncludes = function(searchElement, searchIndex) {
   // Place your code here.
   // The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
+  if(searchIndex != undefined){
+    return (this[searchIndex] === searchElement);
+  }
+
   for(let i = 0; i < this.length; i++){
     if(this[i] === searchElement){
       return true;
@@ -224,32 +228,42 @@ console.log(testArray1.myReduce(adder, 0));
 console.log('\n');
 console.log('-------------------'); */
 
-// console.log("test .includes()");
-// console.log();
-// console.log('test myIncludes: ');
-// console.log(testArray2.myIncludes('mango'));
-// console.log('-------------------');
+console.log("test .includes() (1 parameter)");
+console.log(testArray1.includes(2));
+console.log('test .myIncludes() (1 parameter): ');
+console.log(testArray1.includes(2));
+console.log('\n');
+console.log("test .includes() (2 parameter)");
+console.log(testArray2.includes('banana', 2));
+console.log('test .myIncludes() (2 parameter): ');
+console.log(testArray2.includes('banana', 2));
+console.log('\n');
+console.log("test .includes() (2 parameter)");
+console.log(testArray3.includes(undefined, 2));
+console.log('test .myIncludes() (2 parameter): ');
+console.log(testArray3.includes(undefined, 2));
+console.log('-------------------');
 
 // console.log("test .indexOf()");
 // console.log();
-// console.log('test myIndexOf: ');
+// console.log('test .myIndexOf(): ');
 // console.log(testArray2.myIndexOf('mango'));
 // console.log('-------------------');
 
 // console.log("test .lastIndexOf()");
 // console.log();
-// console.log('test myLastIndexOf: ');
+// console.log('test .myLastIndexOf(): ');
 // console.log(testArray1.myLastIndexOf(2));
 // console.log('-------------------');
 
 // console.log("test .keys()");
 // console.log();
-// console.log('test myKeys: ');
+// console.log('test .myKeys(): ');
 // console.log(Object.myKeys(person));
 // console.log('-------------------');
 
 // console.log("test .values()");
 // console.log();
-// console.log('test myValues: ');
+// console.log('test .myValues(): ');
 // console.log(Object.myValues(person));
 // console.log('-------------------');
